@@ -28,20 +28,19 @@ class shoeVariable():
 
       def printShoe(self):
 
-            #hook.send("----------------------------------------------------------------------------------------------------------------" + "\n" + "Product Name: " + self.name + "\n" +  "Date: " + self.date[:3] + " " + self.date[3:] + "\n" + "Nike page: "+self.page + "\n" + "SQU: " + str(self.squ) +"\n" +  "Retail: " + str(self.retail) + "\n" + "StockXLinkSearch: " + self.stockXSearchLink)
-            embedsDict[self.name] = DiscordEmbed(title= self.name, description= self.date[:3] + " " + self.date[3:], color=242424)
-            embedsDict.get(self.name).add_embed_field(name = 'Retail', value = self.retail)
-            embedsDict.get(self.name).add_embed_field(name = 'Nike Page', value = self.page)
-            embedsDict.get(self.name).add_embed_field(name = 'Stock X Search', value = self.stockXSearchLink)
-            embedsDict.get(self.name).add_embed_field(name = 'SQU', value = self.squ)
+            hook.send("----------------------------------------------------------------------------------------------------------------" + "\n" + "Product Name: " + self.name + "\n" +  "Date: " + self.date[:3] + " " + self.date[3:] + "\n" + "Nike page: "+self.page + "\n" + "SQU: " + str(self.squ) +"\n" +  "Retail: " + str(self.retail) + "\n" + "StockXLinkSearch: " + self.stockXSearchLink)
+            #embedsDict[self.name] = DiscordEmbed(title= self.name, description= self.date[:3] + " " + self.date[3:], color=242424)
+            #embedsDict[self.name].add_embed_field(name = 'Retail', value = self.retail)
+            #embedsDict[self.name].add_embed_field(name = 'Retail', value = self.retail)
+            #embedsDict[self.name].add_embed_field(name = 'Nike Page', value = self.page)
+            #embedsDict[self.name].add_embed_field(name = 'Stock X Search', value = self.stockXSearchLink)
+            #embedsDict[self.name].add_embed_field(name = 'SQU', value = self.squ)
             sleep(1)
-            response = embedsDict[self.name].execute()
+            #webhook.add_embed(embedsDict[self.name])
+            #response = webhook.execute()
 
 
-      def ShowEmbed(self):
-            webhook.add_embed(embedsDict[self.name])
-
-                        
+                       
       def updateNikepage(self, NikePage):
             self.page = NikePage
             p_nikePageURL = NikePage
@@ -108,20 +107,19 @@ def monitor():
             if(counter2 >= counter):
                   break
       printShoestock(shoesInv)
-      sleep(1)
-      deleteAllHooks(shoesInv)
+
+      sleep(1000)
+      #deleteAllHooks(shoesInv)
       monitor()
 
 def printShoestock(shoesDict):
       keys = list(shoesDict.keys())
       for key in keys:
             shoesDict.get(key).printShoe()
-            shoesDict.get(key).ShowEmbed()
 
 def deleteAllHooks(shoesDict):
       keys = list(shoesDict.keys())
       for key in keys:
-
-            shoesDict.get(key).delete(response)
+            shoesDict.get(key).delete()
 
 monitor()
