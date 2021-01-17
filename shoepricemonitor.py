@@ -7,7 +7,6 @@ import re
 from dhooks import Webhook
 from time import time, sleep
 from discord_webhook import DiscordWebhook, DiscordEmbed
-from selenium import webdriver
 
 
 hook = Webhook("https://discord.com/api/webhooks/795450641114857502/EN1I9-QexxVO-fR7eOF39VN0ckMJqn1hd8CzPNK-N3aAdqkN5U40-eCy3wAPENf1_E5P")
