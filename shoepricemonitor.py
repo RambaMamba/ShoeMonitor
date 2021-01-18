@@ -80,7 +80,7 @@ def monitor():
       for shoeVars in soup.find_all( class_='ncss-col-sm-12 full'):
             if(shoeVars.get_text().lower().startswith(tuple(months))):
                   counter+=1
-                  if(shoeVars.get_text()[5].isdigit()):
+                  if(shoeVars.get_text()[4].isdigit()):
                         shoesInv[str(i)] = shoeVariable(shoeVars.get_text()[5:], shoeVars.get_text()[:5],"" ,"SQU 123", "", "")
                   else:
                         shoesInv[str(i)] = shoeVariable(shoeVars.get_text()[4:], shoeVars.get_text()[:4],"" ,"SQU 123", "", "")
@@ -106,7 +106,8 @@ def monitor():
             if(counter2 >= counter):
                   break
       printShoestock(shoesInv)
-
+      hook.send("Pulling data.......")
+      hook.send("https://tenor.com/view/rainbow-line-gif-14375151")
       sleep(1000)
       #deleteAllHooks(shoesInv)
       monitor()
